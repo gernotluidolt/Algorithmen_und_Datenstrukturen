@@ -1,7 +1,7 @@
 # Name of the binary
 BINARY = SinglyLinkedList
 # Object files
-OBJS   = main_singlyLinkedList.o
+OBJS   = main_singlyLinkedList.o SinglyLinkedList.o
 # Compiler flags
 CPPFLAGS = -Werror -Wall
 # Linker flags

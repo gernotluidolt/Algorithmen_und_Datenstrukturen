@@ -1,9 +1,7 @@
 #include "SinglyLinkedList.h"
 #include <iostream>
 
-
 using namespace std;
-
 
 int main()
 {
@@ -31,19 +29,19 @@ int main()
 
 	// Remove nodes
 	cout << "Removing elements!" << endl << "-----------" << endl;
-      list.removeFirstNode();	
+      list.removeFirstNode();
 	list.printList();
-      list.removeFirstNode();	
+      list.removeFirstNode();
 	list.printList();
-	list.removeLastNode();	
+	list.removeLastNode();
 	list.printList();
-      list.removeLastNode();	
+      list.removeLastNode();
 	list.printList();
-      list.removeNodeAt(2);	
+      list.removeNodeAt(2);
 	list.printList();
-      list.removeNodeAt(2);	
+      list.removeNodeAt(2);
 	list.printList();
-      list.removeNodeAt(3);	
+      list.removeNodeAt(3);
 	list.printList();
 	return 0;
 }
