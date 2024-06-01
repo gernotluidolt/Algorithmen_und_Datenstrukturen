@@ -1,7 +1,7 @@
 # Name of the binary
-BINARY = SinglyLinkedList
+BINARY = BinaryTree
 # Object files
-OBJS   = main_Tree.o Tree.o
+OBJS   = main_Tree.o BinaryTree.o
 # Compiler flags
 CPPFLAGS = -Werror -Wall
 # Linker flags

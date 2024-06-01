@@ -1,7 +1,7 @@
 # Name of the binary
-BINARY = SinglyLinkedList
+BINARY = StackWithLinkedList
 # Object files
-OBJS   = main_StackWithLinkedList.o StackWithLinkedList.o
+OBJS   = main_StackWithLinkedList.cpp StackWithLinkedList.cpp SinglyLinkedList.cpp
 # Compiler flags
 CPPFLAGS = -Werror -Wall
 # Linker flags

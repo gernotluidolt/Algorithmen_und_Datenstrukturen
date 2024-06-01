@@ -2,42 +2,74 @@
 #include "StackWithLinkedListException.cpp"
 #include <iostream>
 #include <exception>
+#include <stdexcept>
 
-using namespace std;
+int i = 1;
+
+#define STEP std::cout << "STEP " << i++ << std::endl;
 
 
 int main()
 {
+    STEP
+
 	StackWithLinkedList stackwll;
+
+    STEP
+
    	stackwll.printStack();
+
+    STEP
+
 	stackwll.push(100);
    	stackwll.push(200);
    	stackwll.push(300);
+
+    STEP
+
    	stackwll.printStack();
+
+    STEP
+
 	while (!stackwll.isEmpty())
       	{
-      		cout << stackwll.pop() << endl;
+            std::cout << stackwll.pop() << std::endl;
 		stackwll.printStack();
       	}
+
+    STEP
+
 	try 
 	{
-		cout << stackwll.peek() << endl;
+        std::cout << stackwll.peek() << std::endl;
 	}
 	catch (StackWithLinkedListException& e)
     	{
-        	cout << e.what() << endl;
+            std::cout << e.what() << std::endl;
     	}
+
+    STEP
+
 	stackwll.push(400);
 	try 
 	{
-		cout << stackwll.peek() << endl;
+        std::cout << stackwll.peek() << std::endl;
    	}
 	catch (StackWithLinkedListException& e)
     	{
-        	cout << e.what() << endl;
+            std::cout << e.what() << std::endl;
     	}
+
+    STEP
+
 	stackwll.printStack();
-      	stackwll.pop();
+
+    STEP
+
+    stackwll.pop();
+
+    STEP
+
    	stackwll.printStack();
    	return 0;
 }
