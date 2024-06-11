@@ -16,6 +16,7 @@ HashTable::HashTable(int (*hashFunc)(int)) {
     for (int i = 0; i < C_TABLE_SIZE; i++) {
         hash_table[i] = NULL;
     }
+    cout << "HashTable created." << endl;
 }
 
 HashTable::~HashTable() {
@@ -27,7 +28,7 @@ HashTable::~HashTable() {
     if (hash_table != NULL) {
         delete[] hash_table;
     }
-    cout << "Bye, leaving the application..." << endl;
+    cout << "HashTable destructed." << endl;
 }
 
 int HashTable::hashFunction1(int key) {

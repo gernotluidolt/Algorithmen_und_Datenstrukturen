@@ -1,29 +1,41 @@
-# Define the compiler to use
-CXX = g++
+# Name of the binary
+BINARY = BinaryTree
+# Object files
+OBJS   = HashTable.o main_HashTable.o
+# Compiler flags
+CPPFLAGS = -Werror -Wall
+# Linker flags
+LFLAGS =
 
-# Define compiler flags
-CXXFLAGS = -Wall -g
 
-# Define the target executable
-TARGET = main
+# all target: builds all important targets
+all: ${BINARY}
 
-# Define the source files
-SRCS = main.cpp HashTable.cpp
 
-# Define the object files
-OBJS = $(SRCS:.cpp=.o)
+# Links the binary
+${BINARY} : ${OBJS}
+	g++	${LFLAGS} -o ${BINARY} ${OBJS}
 
-# Rule to build the target executable
-$(TARGET): $(OBJS)
-	$(CXX) $(CXXFLAGS) -o $(TARGET) $(OBJS)
 
-# Rule to build the object files
-%.o: %.cpp
-	$(CXX) $(CXXFLAGS) -c $< -o $@
+# Compiles a source-file (any file with file extension .cpp) into an object-file
+#
+# "%" is a wildcard which matches every file-name (similar to * in regular expressions)
+# Such a rule is called a pattern rule (because it matches a pattern, see https://www.gnu.org/software/make/manual/html_node/Pattern-Rules.html),
+# which are a form of so called implicit rules (see https://www.gnu.org/software/make/manual/html_node/Implicit-Rules.html)
+# "$@" and "$<" are so called automatic variables (see https://www.gnu.org/software/make/manual/html_node/Automatic-Variables.html)
+%.o : %.cpp
+	g++ -c ${CPPFLAGS} -o $@ $<
 
-# Rule to clean up the build directory
-clean:
-	rm -f $(OBJS) $(TARGET)
 
-# Phony targets
-.PHONY: clean
+# Rules can not only be used for compiling a program but also for executing a program
+run: ${BINARY}
+	./${BINARY}
+
+
+# Delete all build artifacts
+clean :
+	rm -rf ${BINARY} ${OBJS}
+
+
+# all  and clean are a "phony" targets, meaning they are no files
+.PHONY : all clean
