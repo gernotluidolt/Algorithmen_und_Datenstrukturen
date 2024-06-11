@@ -1,0 +1,15 @@
+CC = g++
+FLAGS = -I
+#DEPENDENCIES = ../00_helperFunctions/helperFunctions.h
+OBJECT_FILES = main.o binaryTreeNode.o binaryTree.o
+
+all: binaryTree
+
+clean: 
+	rm -rf binaryTree binaryTree.exe *.o
+
+%.o: %.c $(DEPENDENCIES)
+	$(CC) -c -o $@ $< $(FLAGS).
+
+binaryTree: $(OBJECT_FILES)
+	$(CC) -o $@ $^ $(FLAGS).
